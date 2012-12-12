@@ -23,10 +23,10 @@ used, including those acknowledged below, may have their own licenses.
 
 ### Acknowledgements
 
-[Django](https://www.djangoproject.com/)
-[Bootstrap](http://twitter.github.com/bootstrap/)
-[Hydrogen666, "Flock Wallpaper Pattern"](http://hydrogen666.deviantart.com/art/Flock-Wallpaper-Pattern-89953817)
-[Renee Ramsey-Passmore, from The Noun Project](http://thenounproject.com/noun/fleur-de-lis/#icon-No5419)
+* [Django](https://www.djangoproject.com/)
+* [Bootstrap](http://twitter.github.com/bootstrap/)
+* [Hydrogen666, "Flock Wallpaper Pattern"](http://hydrogen666.deviantart.com/art/Flock-Wallpaper-Pattern-89953817)
+* [Renee Ramsey-Passmore, from The Noun Project](http://thenounproject.com/noun/fleur-de-lis/#icon-No5419)
 
 ### Author
 
