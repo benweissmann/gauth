@@ -1,0 +1,27 @@
+{% extends "base.html" %}
+
+{% block content %}
+    <h1 class="section-header">
+        Step 4: Add The Spreadsheet Script
+    </h1>
+    <img class="separator" src="static/img/fleur.png" />
+
+    <p>
+        Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nullam pretium accumsan feugiat. Aenean aliquet rhoncus eros at congue. Aliquam euismod tempus faucibus. In in orci facilisis nibh dignissim adipiscing. Mauris placerat urna lacinia purus euismod et mattis nisi euismod. Vivamus sagittis tristique tristique. Phasellus eu libero tellus, sit amet fermentum metus. Vestibulum posuere augue eu sapien sollicitudin congue. Phasellus vehicula blandit ante id ullamcorper. Mauris euismod nibh eu odio tempus faucibus. Ut nec erat magna.
+    </p>
+
+    <h1 class="section-header">
+        Step 5: You're Done
+    </h1>
+    <img class="separator" src="static/img/fleur.png" />
+
+    <p>
+        Have your users visit <a href="{{ form.short_url }}" target="_blank">{{form.short_url}}</a>.
+        They'll be authenticated with their certificate, and your spreadsheet
+        will automatically authenticate the users and show their email.
+    </p>
+
+    <p class="footer">
+        Created by <a href="http://benweissmann.com" target="_blank">Ben
+        Weissmann</a>.
+{% endblock %}

@@ -1,0 +1,60 @@
+{% extends "base.html" %}
+
+{% block content %}
+    <form name="input" action="." method="post">
+        {% csrf_token %}
+        <h1 class="section-header">
+            Step 1: Create a Form
+        </h1>
+        <img class="separator" src="static/img/fleur.png" />
+
+        <p>
+            Create a form from your <a href="https://drive.google.com">Google Drive</a>
+            account. Add a &ldquo;Text&rdquo; question with the title
+            &ldquo;Authentication Token&rdquo;. It's important that you use that
+            exact title.
+        </p>
+
+        <h1 class="section-header">
+            Step 2: Get the Form Key
+        </h1>
+        <img class="separator" src="static/img/fleur.png" />
+
+        <p>
+            Once you've created the form, view it. You should be at a URL that looks
+            like <code class="long-code">
+                https://docs.google.com/spreadsheet/viewform?formkey=dGJqbEF6NFZiOWNSM205akoxOW8yNR45E2
+            </code>. The form key is in that URL: in this case, it's <code>dGJqbEF6NFZiOWNSM205akoxOW8yNR45E2</code>. Copy that form key into this box:
+        </p>
+
+        {% if error %}
+
+            <div class="control-group error">
+                <input type="text" name="formkey" class="input-xxlarge" value="{{ formkey }}" />
+                <div class="help-block">
+                    Something's wrong with your form. Double-check that the form key
+                    is correct and that you have a &ldquo;Text&rdquo; question with
+                    the title &ldquo;Authentication Token&rdquo;.
+                </div>
+            </div>
+
+        {% else %}
+
+            <div class="control-group">
+                <input type="text" name="formkey" class="input-xxlarge"/>
+            </div>
+
+        {% endif %}
+
+
+
+        <h1 class="section-header">
+            Step 3: Click This Button
+        </h1>
+        <img class="separator" src="static/img/fleur.png" />
+
+        <p class="button-p">
+            <input class="btn btn-inverse btn-large" type="submit" value="Continue &raquo;">
+        </p>
+    </form>
+{% endblock %}

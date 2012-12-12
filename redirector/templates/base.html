@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <link rel="stylesheet" href="static/css/application.css" />
+        <title>
+            {% block title %}
+                GAuth: Certificate Authentication for Google Form
+            {% endblock %}
+        </title>
+    </head>
+
+    <body>
+        <div class="container">
+            <div class="content">
+                <div class="page-header">
+                    <p class="title">GAuth</p>
+                    <p class="subtitle">
+                        Certificate Authentication for your Google Forms
+                    </p>
+                </div>
+
+                {% block content %}{% endblock %}
+            </div>
+        </div>
+
+        <script src="http://code.jquery.com/jquery-latest.js"></script>
+        <script src="js/bootstrap.min.js"></script>
+    </body>
+</html>

@@ -1,0 +1,81 @@
+@import url("bootstrap.min.css");
+@import url("bootstrap-responsive.min.css");
+@import url(http://fonts.googleapis.com/css?family=Great+Vibes);
+@import url(http://fonts.googleapis.com/css?family=Berkshire+Swash);
+
+
+
+html, body {
+    height: 100%;
+}
+
+body {
+    background-image: url('../img/bg.jpg');
+}
+
+.container {
+    background-color: white;
+    min-height: 100%;
+    box-shadow: 0 0 20px 10px #100c09;
+}
+
+.content {
+    padding: 0px 20px 60px;
+}
+
+.section-header {
+    padding-top: 150px;
+    text-align: center;
+    font-family: 'Great Vibes', cursive;
+    font-weight: normal;
+}
+
+.section-header:first-of-type {
+    padding-top: 50px;
+}
+
+.page-header {
+    padding-top: 40px;
+    text-align: center;
+}
+
+.title {
+    font-size: 60px;
+    font-family: 'Berkshire Swash', cursive;
+}
+
+.subtitle {
+    padding-top: 40px;
+    font-size: 40px;
+    font-family: 'Great Vibes', cursive;
+}
+
+.separator {
+    display: block;
+    margin-left: auto;
+    margin-right: auto;
+    width: 75px;
+    height: 75px;
+    margin-bottom: 40px;
+}
+
+code.long-code {
+    white-space: normal;
+    word-break: break-all;
+}
+
+.control-group {
+    text-align: center;
+    padding-top: 40px;
+}
+
+p.button-p {
+    text-align: center;
+}
+
+input[type=text]:focus {
+  border-color: #888;
+  box-shadow: inset 0 1px 1px rgba(0,0,0,.075), 0 0 8px #888;
+  outline: 0;
+  outline: thin dotted \9; /* IE6-9 */
+}
