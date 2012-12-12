@@ -20,7 +20,7 @@ body {
 }
 
 .content {
-    padding: 0px 20px 60px;
+    padding: 0px 20px 20px;
 }
 
 .section-header {
@@ -78,4 +78,10 @@ input[type=text]:focus {
   box-shadow: inset 0 1px 1px rgba(0,0,0,.075), 0 0 8px #888;
   outline: 0;
   outline: thin dotted \9; /* IE6-9 */
+}
+
+.footer {
+    padding-top: 80px;
+    text-align: center;
+    font-style: italic;
 }
