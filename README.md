@@ -30,4 +30,4 @@ used, including those acknowledged below, may have their own licenses.
 
 ### Author
 
-(Ben Weissmann)[mailto:bsw@mit.edu]
+[Ben Weissmann](mailto:bsw@mit.edu)
