@@ -4,18 +4,28 @@ from django.core.context_processors import csrf
 from django.template import RequestContext
 from redirector.models import Token, Form
 from redirector import certs
+from redirector import urlparser
 
 def index(request):
     if request.method == 'GET':
         return render_to_response('index.html', {'error': False},
                                   context_instance=RequestContext(request))
     else:
-        form = Form(formkey = request.POST['formkey'])
+        formkey = urlparser.get_formkey(request.POST['formurl'])
+
+        if not formkey:
+            return render_to_response(
+                'index.html',
+                {'error': True, 'formurl': request.POST['formurl']},
+                context_instance=RequestContext(request)
+            )
+
+        form = Form(formkey = formkey)
         form.fill_entry_id()
         if not form.entry_id:
             return render_to_response(
                 'index.html',
-                {'error': True, 'formkey': request.POST['formkey']},
+                {'error': True, 'formurl': request.POST['formurl']},
                 context_instance=RequestContext(request)
             )
 

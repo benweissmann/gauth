@@ -14,7 +14,7 @@ function authResolve() {
       if(val.slice(0, 6) == 'gauth:') {
         cell = sheet.getRange(i+1, j+1);
         token = val.slice(6);
-        var name = UrlFetchApp.fetch("http://gauth.bsw.scripts.mit.edu/tokens/" + token).getContentText();
+        var name = UrlFetchApp.fetch("https://bsw.scripts.mit.edu/gauth/tokens/" + token).getContentText();
         cell.setValue(name);
       }
     }

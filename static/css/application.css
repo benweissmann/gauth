@@ -11,6 +11,7 @@ html, body {
 
 body {
     background-image: url('../img/bg.jpg');
+    text-align: center;
 }
 
 .container {
@@ -25,7 +26,6 @@ body {
 
 .section-header {
     padding-top: 150px;
-    text-align: center;
     font-family: 'Great Vibes', cursive;
     font-weight: normal;
 }
@@ -36,7 +36,6 @@ body {
 
 .page-header {
     padding-top: 40px;
-    text-align: center;
 }
 
 .title {
@@ -65,12 +64,7 @@ code.long-code {
 }
 
 .control-group {
-    text-align: center;
     padding-top: 40px;
-}
-
-p.button-p {
-    text-align: center;
 }
 
 input[type=text]:focus {
@@ -82,6 +76,27 @@ input[type=text]:focus {
 
 .footer {
     padding-top: 80px;
-    text-align: center;
     font-style: italic;
+}
+
+.big-link {
+    font-size: 40px;
+    padding-top: 40px;
+}
+
+a {
+    color: black;
+    text-decoration: underline;
+}
+
+a.btn {
+    text-decoration: none;
+}
+
+a:hover {
+    text-decoration: none;
+}
+
+pre {
+    text-align: left;
 }

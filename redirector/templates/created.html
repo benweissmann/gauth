@@ -6,9 +6,71 @@
     </h1>
     <img class="separator" src="static/img/fleur.png" />
 
+    <!--
     <p>
-        Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nullam pretium accumsan feugiat. Aenean aliquet rhoncus eros at congue. Aliquam euismod tempus faucibus. In in orci facilisis nibh dignissim adipiscing. Mauris placerat urna lacinia purus euismod et mattis nisi euismod. Vivamus sagittis tristique tristique. Phasellus eu libero tellus, sit amet fermentum metus. Vestibulum posuere augue eu sapien sollicitudin congue. Phasellus vehicula blandit ante id ullamcorper. Mauris euismod nibh eu odio tempus faucibus. Ut nec erat magna.
+        From the spreadsheet that holds your form's responses, select
+        &ldquo;Tools&rdquo; &gt; &ldquo;Script gallery...&rdquo; from the
+        menu bar. Search for &ldquo;GAuth&rdquo; and click the
+        &ldquo;Install&rdquo; button.
     </p>
+    -->
+
+    <p class="tbd-text">
+        I'm working on making this process simpler by getting the script
+        into the Google Apps Script gallery. For now, you'll have to copy the
+        script in manually.
+    </p>
+
+    <p>
+        In the spreadsheet that holds your form responses, select
+        &ldquo;Tools&rdquo; &gt; &ldquo;Script editor...&rdquo;
+        &gt; &ldquo;Blank Project&rdquo; and paste the following code in to
+        the editor:
+    </p>
+
+    <pre>
+        /**
+         * Finds all cells that start with "gauth:" and resolves the token inthe cell with the GAuth service.
+         */
+        function authResolve() {
+          var sheet = SpreadsheetApp.getActiveSheet();
+          var rows = sheet.getDataRange();
+          var numRows = rows.getNumRows();
+          var values = rows.getValues();
+
+          for (var i = 0; i <= numRows - 1; i++) {
+            var row = values[i];
+            for(var j = 0; j < row.length; j++) {
+              val = String(values[i][j]);
+              if(val.slice(0, 6) == 'gauth:') {
+                cell = sheet.getRange(i+1, j+1);
+                token = val.slice(6);
+                var name = UrlFetchApp.fetch("https://bsw.scripts.mit.edu/gauth/tokens/" + token).getContentText();
+                cell.setValue(name);
+              }
+            }
+          }
+        };
+
+        function onInstall() {
+          // Get spreadsheet key
+          var spreadsheet = SpreadsheetApp.getActiveSpreadsheet();
+
+          // Create onEdit trigger using the Spreadsheet
+          var onEditTrigger = ScriptApp.newTrigger("authResolve")
+              .forSpreadsheet(spreadsheet)
+              .onFormSubmit()
+              .create();
+        }
+    </pre>
+
+    <p>
+        Then, select &ldquo;File&rdquo; &gt; &ldquo;Save&rdquo; and enter any
+        name. Finally, select &ldquo;Run&rdquo; &gt; &ldquo;onInstall&rdquo;.
+        You might have to click &ldquo;Authorize&rdquo; and then select
+         &ldquo;onInstall&rdquo; again.
+    </p>
+
 
     <h1 class="section-header">
         Step 5: You're Done
@@ -16,14 +78,24 @@
     <img class="separator" src="static/img/fleur.png" />
 
     <p>
-        Have your users visit <a href="{{ form.short_url }}" target="_blank">{{form.short_url}}</a>.
+        Have your users visit the url below.
         They'll be authenticated with their certificate, and your spreadsheet
         will automatically authenticate the users and show their email.
     </p>
 
-    <p class="footer">
-        Created by <a href="http://benweissmann.com" target="_blank">Ben
-        Weissmann</a>. Source on <a href="https://github.com/benweissmann/gauth">
-        GitHub</a>.
+    <p class="big-link">
+        <a href="{{ form.short_url }}" target="_blank">{{form.short_url}}</a>
     </p>
+
+    <h1 class="section-header">
+        Step 6: Do It Again?
+    </h1>
+    <img class="separator" src="static/img/fleur.png" />
+
+    <p class="button-p">
+        <a href="." class="btn btn-inverse btn-large">&laquo; Back</a>
+    </p>
+
+
+
 {% endblock %}
