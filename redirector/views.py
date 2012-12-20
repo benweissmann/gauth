@@ -39,7 +39,12 @@ def index(request):
 def redirect(request, form_key):
     form = get_object_or_404(Form, key=form_key)
     token = form.token_set.create()
-    token.user = certs.get_email(request)
+    user = certs.get_email(request)
+
+    if user == None:
+        return HttpResponse('You need an MIT certificate to access this form.')
+
+    token.user = user
     token.save()
 
     params = {form.entry_id: ('gauth:'+token.token)}
