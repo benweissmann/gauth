@@ -1,14 +1,15 @@
 from django.db import models
 from django.db.models.signals import pre_save
 from django.dispatch import receiver
-import random
 import urllib
 from redirector import shortener
 from redirector import form_parser
 from gauth.settings import GAUTH_URL
+import sha
+import os
 
 def gen_token():
-    return hex(random.getrandbits(100))[2:-1]
+    return sha.new(os.urandom(160)).hexdigest()
 
 # Create your models here.
 class Form(models.Model):
