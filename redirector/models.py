@@ -5,11 +5,11 @@ import urllib
 from redirector import shortener
 from redirector import form_parser
 from gauth.settings import GAUTH_URL
-import sha
+import hashlib
 import os
 
 def gen_token():
-    return sha.new(os.urandom(160)).hexdigest()
+    return hashlib.sha1(os.urandom(160)).hexdigest()
 
 # Create your models here.
 class Form(models.Model):
