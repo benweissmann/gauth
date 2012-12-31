@@ -4,13 +4,8 @@
 
 ### Setup
 
-Copy gauth/settings.example.py to gauth/settings.py and fill in the places
-marked "TODO."
-
-Note that GAuth expects that the server will handle certificate authentication.
-It expects the `SSL_CLIENT_S_DN_Email` field of the request to hold the user's
-email address. You can change the field name in `redirector/certs.py`. This
-should work out-of-the-box on scripts.mit.edu.
+Edit `gauth/settings.py` to fill in the items marked TODO, or create the file
+`gauth/local_settings.py` and overrides the settings there.
 
 ### Contributing
 

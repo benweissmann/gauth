@@ -5,10 +5,11 @@ from django.template import RequestContext
 from redirector.models import Token, Form
 from redirector import certs
 from redirector import urlparser
+from gauth.settings import TOKEN_FIELD_NAME
 
 def index(request):
     if request.method == 'GET':
-        return render_to_response('index.html', {'error': False},
+        return render_to_response('index.html', {'error': False, 'token_field_name': TOKEN_FIELD_NAME},
                                   context_instance=RequestContext(request))
     else:
         formkey = urlparser.get_formkey(request.POST['formurl'])
@@ -16,7 +17,7 @@ def index(request):
         if not formkey:
             return render_to_response(
                 'index.html',
-                {'error': True, 'formurl': request.POST['formurl']},
+                {'error': True, 'formurl': request.POST['formurl'], 'token_field_name': TOKEN_FIELD_NAME},
                 context_instance=RequestContext(request)
             )
 
@@ -25,7 +26,7 @@ def index(request):
         if not form.entry_id:
             return render_to_response(
                 'index.html',
-                {'error': True, 'formurl': request.POST['formurl']},
+                {'error': True, 'formurl': request.POST['formurl'], 'token_field_name': TOKEN_FIELD_NAME},
                 context_instance=RequestContext(request)
             )
 

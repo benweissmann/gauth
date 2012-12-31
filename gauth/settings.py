@@ -164,3 +164,18 @@ GOOGLE_API_KEY = 'TODO: enter your Google API key'
 # certificates, e.g. "https://bsw.scripts.mit.edu:444/gauth/" (note the
 # trailing slash)
 GAUTH_URL = "TODO: put your URL here"
+
+# You should configure your webserver to accept certificates and put the email
+# (or some other unique identifier) from the certificate into a request header
+# that's sent to Django. Se the name of that request header here. The one below
+# is the default for scripts.mit.edu
+CLIENT_EMAIL_HEADER = 'SSL_CLIENT_S_DN_Email'
+
+# This is the string users will set as the name of their GAuth token field in
+# their google forms.
+TOKEN_FIELD_NAME = "Authentication Token"
+
+try:
+    from gauth.local_settings import *
+except ImportError:
+    pass
