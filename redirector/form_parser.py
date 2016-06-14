@@ -11,9 +11,21 @@ def get_entry_id(form_url):
 
     p = lxml.html.parse(page)
     root = p.getroot()
-    labels = root.cssselect('label:contains("'+TOKEN_FIELD_NAME+'")')
-    if len(labels) < 1:
+    
+    headings = root.cssselect('div[role=heading]:contains("'+TOKEN_FIELD_NAME+'")')
+    if len(headings) < 1:
         return None
-    return labels[0].get('for')
+
+    heading = headings[0]
+    parent_wrappers = [e for e in heading.iterancestors() if e.attrib.get('role') == 'listitem']
+    if len(parent_wrappers) < 1:
+        return None
+
+    parent_wrapper = parent_wrappers[0]
+    inputs = parent_wrapper.cssselect('input[type=hidden]')
+    if len(inputs) < 1:
+        return None    
+
+    return inputs[0].get('name')
 
 

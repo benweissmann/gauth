@@ -7,7 +7,7 @@ admin.autodiscover()
 
 urlpatterns = patterns('redirector.views',
     url(r'^forms/(?P<form_key>[0-9a-f]+)$', 'redirect'),
-    url(r'^tokens/(?P<token>[0-9a-f]+)$', 'resolve'),
+    url(r'^tokens/(?P<token>.+)$', 'resolve'),
     url(r'^$', 'index')
 
 )

@@ -32,8 +32,7 @@ class Form(models.Model):
         self.entry_id = form_parser.get_entry_id(self.get_url())
 
     def get_url(self, params={}):
-        params['formkey'] = self.formkey
-        return "https://docs.google.com/spreadsheet/viewform?" + urllib.urlencode(params)
+        return "https://docs.google.com/forms/d/" + self.formkey + "/viewform?" + urllib.urlencode(params)
 
 @receiver(pre_save, sender=Form)
 def fill_in_form(sender, **kwargs):
